@@ -22,6 +22,15 @@ import ad6 from "@/assets/antes_depois_6.jpeg.asset.json";
 import vitor from "@/assets/dr_vitor.jpeg.asset.json";
 import amanda from "@/assets/dra_amanda.jpeg.asset.json";
 import vivian from "@/assets/dra_vivian.jpeg.asset.json";
+import av1 from "@/assets/avaliacao_1.png.asset.json";
+import av2 from "@/assets/avaliacao_2.png.asset.json";
+import av3 from "@/assets/avaliacao_3.png.asset.json";
+import av4 from "@/assets/avaliacao_4.png.asset.json";
+import av5 from "@/assets/avaliacao_5.png.asset.json";
+import av6 from "@/assets/avaliacao_6.png.asset.json";
+import av7 from "@/assets/avaliacao_7.png.asset.json";
+import av8 from "@/assets/avaliacao_8.png.asset.json";
+import av9 from "@/assets/avaliacao_9.png.asset.json";
 
 const WA = "https://wa.me/5527998429696?text=" + encodeURIComponent("Olá! Gostaria de agendar uma avaliação na ConsultaOral.");
 const IG = "https://instagram.com/consultaoral";
@@ -142,13 +151,6 @@ const services = [
   { t: "Placas para Bruxismo & Laserterapia", d: "Alívio de dores articulares, proteção contra o desgaste dentário e tratamentos complementares." },
 ];
 
-const tones = [
-  { card: "bg-navy-gradient border-navy-deep", bar: "bg-sky", num: "text-sky/50", title: "on-dark", desc: "on-dark-muted" },
-  { card: "bg-sky-soft border-sky/40", bar: "bg-navy", num: "text-navy/20", title: "text-navy", desc: "text-muted-foreground" },
-  { card: "bg-card border-sky/50", bar: "bg-gradient-to-r from-sky to-navy", num: "text-sky/60", title: "text-navy", desc: "text-muted-foreground" },
-  { card: "bg-gradient-to-br from-sky-soft via-ivory to-card border-sky/30", bar: "bg-sky", num: "text-navy/15", title: "text-navy", desc: "text-muted-foreground" },
-];
-
 const cases = [
   { img: casoOrtodontia.url, t: "Ortodontia", d: "Alinhamento funcional e estético com aparelhos e alinhadores invisíveis." },
   { img: casoHarmonizacao.url, t: "Harmonização Facial", d: "Equilíbrio e naturalidade com procedimentos minimamente invasivos." },
@@ -162,6 +164,18 @@ const beforeAfter = [
   { img: ad4.url, t: "Antes & Depois — Caso 4" },
   { img: ad5.url, t: "Antes & Depois — Caso 5" },
   { img: ad6.url, t: "Antes & Depois — Caso 6" },
+];
+
+const reviews = [
+  { img: av1.url, n: "Roseli" },
+  { img: av2.url, n: "Gabriella" },
+  { img: av3.url, n: "Maria Inês" },
+  { img: av4.url, n: "Renzo" },
+  { img: av5.url, n: "Karina" },
+  { img: av6.url, n: "Maria Aparecida" },
+  { img: av7.url, n: "João" },
+  { img: av8.url, n: "Priscila" },
+  { img: av9.url, n: "Marina" },
 ];
 
 const steps = [
@@ -276,17 +290,14 @@ function Index() {
         <div className="mx-auto max-w-5xl">
           <SectionHead eyebrow="Serviços e especialidades" title="Soluções Odontológicas Integradas" sub="Atendimento completo para todas as etapas da sua saúde e estética bucal." />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map(({ t, d }, k) => {
-              const tone = tones[k % tones.length]!;
-              return (
-                <div key={t} className={`relative overflow-hidden rounded-3xl border p-5 transition-transform hover:-translate-y-1 ${tone.card}`}>
-                  <span className={`absolute inset-x-0 top-0 h-1.5 ${tone.bar}`} />
-                  <span className={`absolute top-3 right-4 font-display text-4xl leading-none ${tone.num}`}>{String(k + 1).padStart(2, "0")}</span>
-                  <h3 className={`mt-3 max-w-[80%] text-xl leading-snug font-semibold ${tone.title}`}>{t}</h3>
-                  <p className={`mt-2 text-sm font-light ${tone.desc}`}>{d}</p>
-                </div>
-              );
-            })}
+            {services.map(({ t, d }, k) => (
+              <div key={t} className="glass-light relative overflow-hidden rounded-3xl border border-sky/40 p-5 transition-transform hover:-translate-y-1">
+                <span className="bg-gradient-to-r from-sky to-navy absolute inset-x-0 top-0 h-1.5" />
+                <span className="font-display absolute top-3 right-4 text-4xl leading-none text-sky/50">{String(k + 1).padStart(2, "0")}</span>
+                <h3 className="text-navy mt-3 max-w-[80%] text-xl leading-snug font-semibold">{t}</h3>
+                <p className="mt-2 text-sm font-light text-muted-foreground">{d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -319,6 +330,22 @@ function Index() {
                 ))}
               </Carousel>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="texture-lines bg-secondary/50 px-5 py-20">
+        <div className="mx-auto max-w-5xl">
+          <SectionHead eyebrow="Avaliações de pacientes" title="Quem Atendeu, Recomenda" sub="Histórias reais de pacientes atendidos na clínica, que saem do nosso consultório com o sorriso renovado e voltam — e indicam — de olhos fechados." />
+          <div className="mx-auto max-w-2xl">
+            <Carousel auto={4500} label="Avaliações de pacientes no Google">
+              {reviews.map((r) => (
+                <div key={r.img} className="w-full shrink-0 snap-center">
+                  <img src={r.img} alt={`Avaliação de ${r.n} no Google`} loading="lazy" className="shadow-soft w-full rounded-3xl" />
+                </div>
+              ))}
+            </Carousel>
           </div>
         </div>
       </section>
