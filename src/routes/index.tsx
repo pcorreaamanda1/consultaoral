@@ -334,6 +334,22 @@ function Index() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="texture-lines bg-secondary/50 px-5 py-20">
+        <div className="mx-auto max-w-5xl">
+          <SectionHead eyebrow="Avaliações de pacientes" title="Quem Atendeu, Recomenda" sub="Histórias reais de pacientes atendidos na clínica, que saem do nosso consultório com o sorriso renovado e voltam — e indicam — de olhos fechados." />
+          <div className="mx-auto max-w-2xl">
+            <Carousel auto={4500} label="Avaliações de pacientes no Google">
+              {reviews.map((r) => (
+                <div key={r.img} className="w-full shrink-0 snap-center">
+                  <img src={r.img} alt={`Avaliação de ${r.n} no Google`} loading="lazy" className="shadow-soft w-full rounded-3xl" />
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
       {/* Journey */}
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
