@@ -20,6 +20,9 @@ import ad3 from "@/assets/antes_depois_3.jpeg.asset.json";
 import ad4 from "@/assets/antes_depois_4.jpeg.asset.json";
 import ad5 from "@/assets/antes_depois_5.jpeg.asset.json";
 import ad6 from "@/assets/antes_depois_6.jpeg.asset.json";
+import vitor from "@/assets/dr_vitor.jpeg.asset.json";
+import amanda from "@/assets/dra_amanda.jpeg.asset.json";
+import vivian from "@/assets/dra_vivian.jpeg.asset.json";
 
 const WA = "https://wa.me/5527998429696?text=" + encodeURIComponent("Olá! Gostaria de agendar uma avaliação na ConsultaOral.");
 const IG = "https://instagram.com/consultaoral";
