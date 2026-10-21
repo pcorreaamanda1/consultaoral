@@ -2,8 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   MessageCircle, Award, Users, Stethoscope, Cpu, HeartHandshake, UserCheck, ShieldCheck,
-  Sparkles, Smile, Syringe, Gem, Activity, Layers, Leaf, Moon, MapPin, Accessibility,
-  ChevronDown, ChevronLeft, ChevronRight, Instagram, CreditCard, Banknote, QrCode,
+  MapPin, Accessibility, ChevronLeft, ChevronRight, Instagram, CreditCard, Banknote, QrCode,
 } from "lucide-react";
 import logo from "@/assets/logo_consultaoral.jpeg.asset.json";
 import hero from "@/assets/Procedimento_facial_em_clinica_moderna.png.asset.json";
@@ -68,7 +67,7 @@ function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: st
   );
 }
 
-function Carousel({ children, auto = 0, label }: { children: ReactNode[]; auto?: number; label: string }) {
+function Carousel({ children, auto = 0, label, nav = true }: { children: ReactNode[]; auto?: number; label: string; nav?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [i, setI] = useState(0);
   const go = (n: number) => {
@@ -96,16 +95,18 @@ function Carousel({ children, auto = 0, label }: { children: ReactNode[]; auto?:
       <div ref={ref} className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth">
         {children}
       </div>
-      <div className="mt-5 flex items-center justify-center gap-4">
-        <button aria-label="Anterior" onClick={() => go(i - 1)} className="rounded-full border border-border p-2 text-navy"><ChevronLeft className="h-4 w-4" /></button>
-        <div className="flex gap-2">
-          {children.map((_, k) => (
-            <button key={k} aria-label={`Ir para ${k + 1}`} onClick={() => go(k)}
-              className={`h-1.5 rounded-full transition-all ${k === i ? "w-6 bg-navy" : "w-1.5 bg-sky/50"}`} />
-          ))}
+      {nav && (
+        <div className="mt-5 flex items-center justify-center gap-4">
+          <button aria-label="Anterior" onClick={() => go(i - 1)} className="rounded-full border border-border p-2 text-navy"><ChevronLeft className="h-4 w-4" /></button>
+          <div className="flex gap-2">
+            {children.map((_, k) => (
+              <button key={k} aria-label={`Ir para ${k + 1}`} onClick={() => go(k)}
+                className={`h-1.5 rounded-full transition-all ${k === i ? "w-6 bg-navy" : "w-1.5 bg-sky/50"}`} />
+            ))}
+          </div>
+          <button aria-label="Próximo" onClick={() => go(i + 1)} className="rounded-full border border-border p-2 text-navy"><ChevronRight className="h-4 w-4" /></button>
         </div>
-        <button aria-label="Próximo" onClick={() => go(i + 1)} className="rounded-full border border-border p-2 text-navy"><ChevronRight className="h-4 w-4" /></button>
-      </div>
+      )}
     </div>
   );
 }
@@ -131,14 +132,21 @@ const team = [
 ];
 
 const services = [
-  { icon: Smile, t: "Ortodontia & Alinhadores Invisíveis", d: "Correção postural e alinhamento dos dentes com discrição e previsibilidade." },
-  { icon: Sparkles, t: "Harmonização Facial", d: "Procedimentos estéticos orofaciais para equilíbrio, simetria e rejuvenescimento." },
-  { icon: Syringe, t: "Implantes Dentários & Cirurgias", d: "Recuperação da função mastigatória e da estética com técnicas seguras." },
-  { icon: Gem, t: "Estética do Sorriso", d: "Lentes de contato, facetas de porcelana, coroas e clareamento dental." },
-  { icon: Activity, t: "Dentística Restauradora & Endodontia", d: "Tratamentos de canal e restaurações focadas na preservação do dente natural." },
-  { icon: Layers, t: "Próteses Dentárias", d: "Soluções fixas e removíveis planejadas para o seu conforto." },
-  { icon: Leaf, t: "Periodontia & Prevenção", d: "Tratamento de gengiva, limpeza profilática e acompanhamento preventivo." },
-  { icon: Moon, t: "Placas para Bruxismo & Laserterapia", d: "Alívio de dores articulares, proteção contra o desgaste dentário e tratamentos complementares." },
+  { t: "Ortodontia & Alinhadores Invisíveis", d: "Correção postural e alinhamento dos dentes com discrição e previsibilidade." },
+  { t: "Harmonização Facial", d: "Procedimentos estéticos orofaciais para equilíbrio, simetria e rejuvenescimento." },
+  { t: "Implantes Dentários & Cirurgias", d: "Recuperação da função mastigatória e da estética com técnicas seguras." },
+  { t: "Estética do Sorriso", d: "Lentes de contato, facetas de porcelana, coroas e clareamento dental." },
+  { t: "Dentística Restauradora & Endodontia", d: "Tratamentos de canal e restaurações focadas na preservação do dente natural." },
+  { t: "Próteses Dentárias", d: "Soluções fixas e removíveis planejadas para o seu conforto." },
+  { t: "Periodontia & Prevenção", d: "Tratamento de gengiva, limpeza profilática e acompanhamento preventivo." },
+  { t: "Placas para Bruxismo & Laserterapia", d: "Alívio de dores articulares, proteção contra o desgaste dentário e tratamentos complementares." },
+];
+
+const tones = [
+  { card: "bg-navy-gradient border-navy-deep", bar: "bg-sky", num: "text-sky/50", title: "on-dark", desc: "on-dark-muted" },
+  { card: "bg-sky-soft border-sky/40", bar: "bg-navy", num: "text-navy/20", title: "text-navy", desc: "text-muted-foreground" },
+  { card: "bg-card border-sky/50", bar: "bg-gradient-to-r from-sky to-navy", num: "text-sky/60", title: "text-navy", desc: "text-muted-foreground" },
+  { card: "bg-gradient-to-br from-sky-soft via-ivory to-card border-sky/30", bar: "bg-sky", num: "text-navy/15", title: "text-navy", desc: "text-muted-foreground" },
 ];
 
 const cases = [
@@ -162,14 +170,7 @@ const steps = [
   { t: "Tratamento & Acompanhamento", d: "Execução do plano com foco na sua tranquilidade, previsibilidade e resultados duradouros." },
 ];
 
-const faqs = [
-  { q: "Como funciona o atendimento por mais de um especialista?", a: "Por contarmos com um corpo clínico multidisciplinar, seu caso é avaliado de forma integrada. Se você precisa de Ortodontia e Harmonização ou Canal e Implante, tudo é resolvido na mesma clínica com comunicação direta entre os profissionais." },
-  { q: "A clínica possui exames de imagem no local?", a: "Sim, dispomos de radiografia digital no consultório, o que agiliza o diagnóstico logo na primeira consulta." },
-  { q: "Como faço para agendar minha avaliação?", a: "É simples: clique em qualquer botão de agendamento desta página e fale com nossa equipe pelo WhatsApp. Encontraremos o melhor horário para você." },
-];
-
 function Index() {
-  const [open, setOpen] = useState<number | null>(0);
   return (
     <div className="overflow-x-hidden">
       {/* Header */}
@@ -275,14 +276,17 @@ function Index() {
         <div className="mx-auto max-w-5xl">
           <SectionHead eyebrow="Serviços e especialidades" title="Soluções Odontológicas Integradas" sub="Atendimento completo para todas as etapas da sua saúde e estética bucal." />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map(({ icon: I, t, d }, k) => (
-              <div key={t} className="relative overflow-hidden rounded-3xl border border-border bg-card p-5 transition-shadow hover:shadow-soft">
-                <span className="absolute top-3 right-4 font-display text-4xl text-sky/25">{String(k + 1).padStart(2, "0")}</span>
-                <I className="h-6 w-6 text-sky" />
-                <h3 className="mt-3 text-xl leading-snug font-semibold text-navy">{t}</h3>
-                <p className="mt-2 text-sm font-light text-muted-foreground">{d}</p>
-              </div>
-            ))}
+            {services.map(({ t, d }, k) => {
+              const tone = tones[k % tones.length]!;
+              return (
+                <div key={t} className={`relative overflow-hidden rounded-3xl border p-5 transition-transform hover:-translate-y-1 ${tone.card}`}>
+                  <span className={`absolute inset-x-0 top-0 h-1.5 ${tone.bar}`} />
+                  <span className={`absolute top-3 right-4 font-display text-4xl leading-none ${tone.num}`}>{String(k + 1).padStart(2, "0")}</span>
+                  <h3 className={`mt-3 max-w-[80%] text-xl leading-snug font-semibold ${tone.title}`}>{t}</h3>
+                  <p className={`mt-2 text-sm font-light ${tone.desc}`}>{d}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -323,15 +327,12 @@ function Index() {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <SectionHead eyebrow="Jornada do paciente" title="Seu Atendimento Passo a Passo" />
-          <Carousel label="Etapas do atendimento">
+          <Carousel label="Etapas do atendimento" nav={false}>
             {steps.map((s, k) => (
               <div key={s.t} className="w-[85%] shrink-0 snap-center sm:w-[calc(33.333%-11px)]">
-                <div className="flex items-center gap-3">
-                  <span className="bg-navy-gradient on-dark grid h-12 w-12 shrink-0 place-items-center rounded-full font-display text-xl">{k + 1}</span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-sky to-transparent" />
-                </div>
-                <div className="glass-light mt-4 rounded-3xl p-6">
-                  <h3 className="text-2xl font-semibold text-navy">{s.t}</h3>
+                <div className="glass-light h-full rounded-3xl p-6">
+                  <span className="bg-navy-gradient on-dark grid h-12 w-12 place-items-center rounded-full font-display text-xl">{k + 1}</span>
+                  <h3 className="mt-4 text-2xl font-semibold text-navy">{s.t}</h3>
                   <p className="mt-2 text-sm leading-relaxed font-light text-muted-foreground">{s.d}</p>
                 </div>
               </div>
@@ -372,22 +373,6 @@ function Index() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="px-5 pb-20">
-        <div className="mx-auto max-w-3xl">
-          <SectionHead eyebrow="Dúvidas" title="Perguntas Frequentes" />
-          <div className="space-y-3">
-            {faqs.map((f, k) => (
-              <div key={f.q} className="rounded-2xl border border-border bg-card">
-                <button onClick={() => setOpen(open === k ? null : k)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-medium text-navy">
-                  {f.q}<ChevronDown className={`h-5 w-5 shrink-0 text-sky transition-transform ${open === k ? "rotate-180" : ""}`} />
-                </button>
-                {open === k && <p className="px-5 pb-5 text-sm leading-relaxed font-light text-muted-foreground">{f.a}</p>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Final CTA + footer */}
       <footer className="bg-navy-gradient texture-grain px-5 pt-20 pb-10">
@@ -395,12 +380,20 @@ function Index() {
           <img src={logo.url} alt="ConsultaOral" className="mx-auto h-28 w-28 scale-150 object-cover" />
           <h2 className="on-dark mt-6 text-3xl leading-tight font-semibold sm:text-5xl">Pronto para cuidar do seu sorriso com quem une experiência e inovação?</h2>
           <p className="on-dark-muted mt-4 font-light">Agende sua avaliação e descubra o padrão de atendimento da ConsultaOral.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <div className="mt-8 flex justify-center">
             <WaButton>Agendar pelo WhatsApp</WaButton>
-            <a href={IG} target="_blank" rel="noopener noreferrer" className="glass on-dark inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-medium">
-              <Instagram className="h-5 w-5" />Acompanhe nosso trabalho @consultaoral
-            </a>
           </div>
+          <a href={IG} target="_blank" rel="noopener noreferrer"
+            className="shadow-soft group mt-4 flex w-full items-center gap-4 rounded-3xl bg-gradient-to-r from-sky to-sky-soft p-5 text-navy-deep transition-transform hover:-translate-y-1 sm:mt-6">
+            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-ivory">
+              <Instagram className="h-7 w-7" />
+            </span>
+            <span className="min-w-0 flex-1 text-left">
+              <span className="block font-display text-2xl leading-tight font-semibold">Acompanhe nosso trabalho</span>
+              <span className="block text-sm font-medium opacity-80">@consultaoral</span>
+            </span>
+            <ChevronRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
+          </a>
           <p className="on-dark-muted mt-14 border-t border-sky/20 pt-6 text-[11px] leading-relaxed">
             ConsultaOral — Clínica Odontológica. Dr. Victor Nimrichter Jr (CRO-ES 7648) | Dra. Amanda Nimrichter (CRO-ES 9183) | Dra. Vívian Nimrichter (CRO-ES 11195). Todos os direitos reservados.
           </p>
