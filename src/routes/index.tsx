@@ -142,9 +142,18 @@ const services = [
 ];
 
 const cases = [
-  { img: c2.url, t: "Ortodontia", d: "Alinhamento funcional e estético com aparelhos e alinhadores invisíveis." },
-  { img: hero.url, t: "Harmonização Facial", d: "Equilíbrio e naturalidade com procedimentos minimamente invasivos." },
-  { img: c1.url, t: "Reabilitação Oral", d: "Implantes e próteses para devolver função e estética ao sorriso." },
+  { img: casoOrtodontia.url, t: "Ortodontia", d: "Alinhamento funcional e estético com aparelhos e alinhadores invisíveis." },
+  { img: casoHarmonizacao.url, t: "Harmonização Facial", d: "Equilíbrio e naturalidade com procedimentos minimamente invasivos." },
+  { img: casoReabilitacao.url, t: "Reabilitação Oral", d: "Implantes e próteses para devolver função e estética ao sorriso." },
+];
+
+const beforeAfter = [
+  { img: ad1.url, t: "Antes & Depois — Preenchimento" },
+  { img: ad2.url, t: "Antes & Depois — Caso 2" },
+  { img: ad3.url, t: "Antes & Depois — Caso 3" },
+  { img: ad4.url, t: "Antes & Depois — Caso 4" },
+  { img: ad5.url, t: "Antes & Depois — Caso 5" },
+  { img: ad6.url, t: "Antes & Depois — Caso 6" },
 ];
 
 const steps = [
