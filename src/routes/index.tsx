@@ -22,6 +22,15 @@ import ad6 from "@/assets/antes_depois_6.jpeg.asset.json";
 import vitor from "@/assets/dr_vitor.jpeg.asset.json";
 import amanda from "@/assets/dra_amanda.jpeg.asset.json";
 import vivian from "@/assets/dra_vivian.jpeg.asset.json";
+import av1 from "@/assets/avaliacao_1.png.asset.json";
+import av2 from "@/assets/avaliacao_2.png.asset.json";
+import av3 from "@/assets/avaliacao_3.png.asset.json";
+import av4 from "@/assets/avaliacao_4.png.asset.json";
+import av5 from "@/assets/avaliacao_5.png.asset.json";
+import av6 from "@/assets/avaliacao_6.png.asset.json";
+import av7 from "@/assets/avaliacao_7.png.asset.json";
+import av8 from "@/assets/avaliacao_8.png.asset.json";
+import av9 from "@/assets/avaliacao_9.png.asset.json";
 
 const WA = "https://wa.me/5527998429696?text=" + encodeURIComponent("Olá! Gostaria de agendar uma avaliação na ConsultaOral.");
 const IG = "https://instagram.com/consultaoral";
@@ -140,13 +149,6 @@ const services = [
   { t: "Próteses Dentárias", d: "Soluções fixas e removíveis planejadas para o seu conforto." },
   { t: "Periodontia & Prevenção", d: "Tratamento de gengiva, limpeza profilática e acompanhamento preventivo." },
   { t: "Placas para Bruxismo & Laserterapia", d: "Alívio de dores articulares, proteção contra o desgaste dentário e tratamentos complementares." },
-];
-
-const tones = [
-  { card: "bg-navy-gradient border-navy-deep", bar: "bg-sky", num: "text-sky/50", title: "on-dark", desc: "on-dark-muted" },
-  { card: "bg-sky-soft border-sky/40", bar: "bg-navy", num: "text-navy/20", title: "text-navy", desc: "text-muted-foreground" },
-  { card: "bg-card border-sky/50", bar: "bg-gradient-to-r from-sky to-navy", num: "text-sky/60", title: "text-navy", desc: "text-muted-foreground" },
-  { card: "bg-gradient-to-br from-sky-soft via-ivory to-card border-sky/30", bar: "bg-sky", num: "text-navy/15", title: "text-navy", desc: "text-muted-foreground" },
 ];
 
 const cases = [
