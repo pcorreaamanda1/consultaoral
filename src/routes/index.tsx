@@ -277,7 +277,7 @@ function Index() {
           <SectionHead eyebrow="Serviços e especialidades" title="Soluções Odontológicas Integradas" sub="Atendimento completo para todas as etapas da sua saúde e estética bucal." />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {services.map(({ t, d }, k) => {
-              const tone = tones[k % tones.length];
+              const tone = tones[k % tones.length]!;
               return (
                 <div key={t} className={`relative overflow-hidden rounded-3xl border p-5 transition-transform hover:-translate-y-1 ${tone.card}`}>
                   <span className={`absolute inset-x-0 top-0 h-1.5 ${tone.bar}`} />
