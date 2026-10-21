@@ -304,6 +304,19 @@ function Index() {
             ))}
           </div>
           <p className="mt-8 text-center text-xs italic text-muted-foreground">*Os resultados podem variar de acordo com as características anatômicas e o diagnóstico individual de cada paciente.</p>
+          <div className="mt-12">
+            <h3 className="text-center text-2xl font-semibold text-navy sm:text-3xl">Antes & Depois</h3>
+            <div className="mt-6">
+              <Carousel auto={5000} label="Antes e depois dos casos clínicos">
+                {beforeAfter.map((b) => (
+                  <div key={b.img} className="w-[85%] shrink-0 snap-center sm:w-[calc(50%-8px)]">
+                    <img src={b.img} alt={b.t} loading="lazy" className="shadow-soft aspect-[4/5] w-full rounded-3xl object-cover sm:aspect-square" />
+                    <p className="mt-2 text-center text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">{b.t}</p>
+                  </div>
+                ))}
+              </Carousel>
+            </div>
+          </div>
         </div>
       </section>
 
