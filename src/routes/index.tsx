@@ -11,9 +11,15 @@ import c1 from "@/assets/consultorio.jpeg.asset.json";
 import c2 from "@/assets/consultorio_2.jpeg.asset.json";
 import r1 from "@/assets/recepcao_consulta_oral.jpeg.asset.json";
 import r3 from "@/assets/recepcao_consulta_oral_3.jpeg.asset.json";
-import vitor from "@/assets/dr_vitor.jpeg.asset.json";
-import amanda from "@/assets/dra_amanda.jpeg.asset.json";
-import vivian from "@/assets/dra_vivian.jpeg.asset.json";
+import casoOrtodontia from "@/assets/caso_ortodontia.jpeg.asset.json";
+import casoHarmonizacao from "@/assets/caso_harmonizacao.jpeg.asset.json";
+import casoReabilitacao from "@/assets/caso_reabilitacao.jpeg.asset.json";
+import ad1 from "@/assets/antes_depois_1.jpeg.asset.json";
+import ad2 from "@/assets/antes_depois_2.jpeg.asset.json";
+import ad3 from "@/assets/antes_depois_3.jpeg.asset.json";
+import ad4 from "@/assets/antes_depois_4.jpeg.asset.json";
+import ad5 from "@/assets/antes_depois_5.jpeg.asset.json";
+import ad6 from "@/assets/antes_depois_6.jpeg.asset.json";
 
 const WA = "https://wa.me/5527998429696?text=" + encodeURIComponent("Olá! Gostaria de agendar uma avaliação na ConsultaOral.");
 const IG = "https://instagram.com/consultaoral";
