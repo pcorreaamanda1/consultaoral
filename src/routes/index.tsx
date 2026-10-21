@@ -311,7 +311,6 @@ function Index() {
                 {beforeAfter.map((b) => (
                   <div key={b.img} className="w-[85%] shrink-0 snap-center sm:w-[calc(50%-8px)]">
                     <img src={b.img} alt={b.t} loading="lazy" className="shadow-soft aspect-[4/5] w-full rounded-3xl object-cover sm:aspect-square" />
-                    <p className="mt-2 text-center text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">{b.t}</p>
                   </div>
                 ))}
               </Carousel>
