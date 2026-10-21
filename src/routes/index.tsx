@@ -41,7 +41,7 @@ function WaButton({ children, className = "" }: { children: ReactNode; className
   );
 }
 
-function Eyebrow({ children, dark }: { children: ReactNode; dark?: boolean }) {
+function Eyebrow({ children, dark }: { children: ReactNode; dark?: boolean | undefined }) {
   return (
     <span className={`inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.3em] ${dark ? "text-sky" : "text-sky"}`}>
       <span className="h-px w-6 bg-sky" />{children}
