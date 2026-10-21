@@ -166,6 +166,18 @@ const beforeAfter = [
   { img: ad6.url, t: "Antes & Depois — Caso 6" },
 ];
 
+const reviews = [
+  { img: av1.url, n: "Roseli" },
+  { img: av2.url, n: "Gabriella" },
+  { img: av3.url, n: "Maria Inês" },
+  { img: av4.url, n: "Renzo" },
+  { img: av5.url, n: "Karina" },
+  { img: av6.url, n: "Maria Aparecida" },
+  { img: av7.url, n: "João" },
+  { img: av8.url, n: "Priscila" },
+  { img: av9.url, n: "Marina" },
+];
+
 const steps = [
   { t: "Primeira Consulta & Exame Clínico", d: "Coleta detalhada do histórico de saúde e avaliação clínica, com exames caso seja necessário." },
   { t: "Planejamento Integrado", d: "Discussão do caso entre nossos especialistas para definir a melhor conduta terapêutica." },
@@ -278,17 +290,14 @@ function Index() {
         <div className="mx-auto max-w-5xl">
           <SectionHead eyebrow="Serviços e especialidades" title="Soluções Odontológicas Integradas" sub="Atendimento completo para todas as etapas da sua saúde e estética bucal." />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map(({ t, d }, k) => {
-              const tone = tones[k % tones.length]!;
-              return (
-                <div key={t} className={`relative overflow-hidden rounded-3xl border p-5 transition-transform hover:-translate-y-1 ${tone.card}`}>
-                  <span className={`absolute inset-x-0 top-0 h-1.5 ${tone.bar}`} />
-                  <span className={`absolute top-3 right-4 font-display text-4xl leading-none ${tone.num}`}>{String(k + 1).padStart(2, "0")}</span>
-                  <h3 className={`mt-3 max-w-[80%] text-xl leading-snug font-semibold ${tone.title}`}>{t}</h3>
-                  <p className={`mt-2 text-sm font-light ${tone.desc}`}>{d}</p>
-                </div>
-              );
-            })}
+            {services.map(({ t, d }, k) => (
+              <div key={t} className="glass-light relative overflow-hidden rounded-3xl border border-sky/40 p-5 transition-transform hover:-translate-y-1">
+                <span className="bg-gradient-to-r from-sky to-navy absolute inset-x-0 top-0 h-1.5" />
+                <span className="font-display absolute top-3 right-4 text-4xl leading-none text-sky/50">{String(k + 1).padStart(2, "0")}</span>
+                <h3 className="text-navy mt-3 max-w-[80%] text-xl leading-snug font-semibold">{t}</h3>
+                <p className="mt-2 text-sm font-light text-muted-foreground">{d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
