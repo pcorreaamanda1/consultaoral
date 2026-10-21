@@ -209,10 +209,10 @@ function Index() {
           <div className="glass max-w-2xl rounded-3xl p-6 sm:p-10">
             <span className="glass inline-block rounded-full px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.3em] text-sky">Odontologia Especializada</span>
             <h1 className="on-dark mt-5 text-[2.1rem] leading-[1.1] font-semibold sm:text-6xl">
-              Sua saúde e estética bucal cuidadas por quem combina <em className="text-sky">tradição, inovação e olhar humano.</em>
+              Conheça a ConsultaOral: uma clínica pensada para garantir <em className="text-sky">saúde e a estética do seu sorriso.</em>
             </h1>
             <p className="on-dark-muted mt-5 text-[15px] leading-relaxed font-light sm:text-lg">
-              Com uma equipe multidisciplinar, a ConsultaOral reúne especialidades integradas para cuidar do seu sorriso com estratégia, segurança e ética, utilizando dos melhores recursos do mercado.
+              Com uma equipe multidisciplinar, reunimos especialidades integradas para cuidar de você com estratégia, segurança e ética, utilizando dos melhores recursos do mercado.
             </p>
             <WaButton className="mt-7 w-full sm:w-auto">Agendar Avaliação pelo WhatsApp</WaButton>
           </div>
@@ -337,7 +337,7 @@ function Index() {
       {/* Testimonials */}
       <section className="texture-lines bg-secondary/50 px-5 py-20">
         <div className="mx-auto max-w-5xl">
-          <SectionHead eyebrow="Avaliações de pacientes" title="Quem Atendeu, Recomenda" sub="Histórias reais de pacientes atendidos na clínica, que saem do nosso consultório com o sorriso renovado e voltam — e indicam — de olhos fechados." />
+          <SectionHead eyebrow="Avaliações de pacientes" title="A experiência na ConsultaOral por quem viveu" sub="Histórias reais de pacientes atendidos na clínica, que saem do nosso consultório com o sorriso renovado e voltam — e indicam — de olhos fechados." />
           <div className="mx-auto max-w-2xl">
             <Carousel auto={4500} label="Avaliações de pacientes no Google">
               {reviews.map((r) => (
