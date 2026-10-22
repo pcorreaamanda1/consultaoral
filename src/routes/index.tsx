@@ -13,12 +13,6 @@ import r3 from "@/assets/recepcao_consulta_oral_3.jpeg.asset.json";
 import casoOrtodontia from "@/assets/caso_ortodontia.jpeg.asset.json";
 import casoHarmonizacao from "@/assets/caso_harmonizacao.jpeg.asset.json";
 import casoReabilitacao from "@/assets/caso_reabilitacao.jpeg.asset.json";
-import ad1 from "@/assets/antes_depois_1.jpeg.asset.json";
-import ad2 from "@/assets/antes_depois_2.jpeg.asset.json";
-import ad3 from "@/assets/antes_depois_3.jpeg.asset.json";
-import ad4 from "@/assets/antes_depois_4.jpeg.asset.json";
-import ad5 from "@/assets/antes_depois_5.jpeg.asset.json";
-import ad6 from "@/assets/antes_depois_6.jpeg.asset.json";
 import vitor from "@/assets/dr_vitor.jpeg.asset.json";
 import amanda from "@/assets/dra_amanda.jpeg.asset.json";
 import vivian from "@/assets/dra_vivian.jpeg.asset.json";
@@ -155,15 +149,6 @@ const cases = [
   { img: casoOrtodontia.url, t: "Ortodontia", d: "Alinhamento funcional e estético com aparelhos e alinhadores invisíveis." },
   { img: casoHarmonizacao.url, t: "Harmonização Facial", d: "Equilíbrio e naturalidade com procedimentos minimamente invasivos." },
   { img: casoReabilitacao.url, t: "Reabilitação Oral", d: "Implantes e próteses para devolver função e estética ao sorriso." },
-];
-
-const beforeAfter = [
-  { img: ad1.url, t: "Antes & Depois — Preenchimento" },
-  { img: ad2.url, t: "Antes & Depois — Caso 2" },
-  { img: ad3.url, t: "Antes & Depois — Caso 3" },
-  { img: ad4.url, t: "Antes & Depois — Caso 4" },
-  { img: ad5.url, t: "Antes & Depois — Caso 5" },
-  { img: ad6.url, t: "Antes & Depois — Caso 6" },
 ];
 
 const reviews = [
@@ -319,23 +304,11 @@ function Index() {
             ))}
           </div>
           <p className="mt-8 text-center text-xs italic text-muted-foreground">*Os resultados podem variar de acordo com as características anatômicas e o diagnóstico individual de cada paciente.</p>
-          <div className="mt-12">
-            <h3 className="text-center text-2xl font-semibold text-navy sm:text-3xl">Antes & Depois</h3>
-            <div className="mt-6">
-              <Carousel auto={5000} label="Antes e depois dos casos clínicos">
-                {beforeAfter.map((b) => (
-                  <div key={b.img} className="w-[85%] shrink-0 snap-center sm:w-[calc(50%-8px)]">
-                    <img src={b.img} alt={b.t} loading="lazy" className="shadow-soft aspect-[4/5] w-full rounded-3xl object-cover sm:aspect-square" />
-                  </div>
-                ))}
-              </Carousel>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="texture-lines bg-secondary/50 px-5 py-20">
+      <section className="texture-lines px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <SectionHead eyebrow="Avaliações de pacientes" title="A experiência na ConsultaOral por quem viveu" sub="Histórias reais de pacientes atendidos na clínica, que saem do nosso consultório com o sorriso renovado e voltam — e indicam — de olhos fechados." />
           <div className="mx-auto max-w-2xl">
