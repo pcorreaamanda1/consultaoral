@@ -10,9 +10,6 @@ import c1 from "@/assets/consultorio.jpeg.asset.json";
 import c2 from "@/assets/consultorio_2.jpeg.asset.json";
 import r1 from "@/assets/recepcao_consulta_oral.jpeg.asset.json";
 import r3 from "@/assets/recepcao_consulta_oral_3.jpeg.asset.json";
-import casoOrtodontia from "@/assets/caso_ortodontia.jpeg.asset.json";
-import casoHarmonizacao from "@/assets/caso_harmonizacao.jpeg.asset.json";
-import casoReabilitacao from "@/assets/caso_reabilitacao.jpeg.asset.json";
 import vitor from "@/assets/dr_vitor.jpeg.asset.json";
 import amanda from "@/assets/dra_amanda.jpeg.asset.json";
 import vivian from "@/assets/dra_vivian.jpeg.asset.json";
@@ -145,11 +142,6 @@ const services = [
   { t: "Placas para Bruxismo & Laserterapia", d: "Alívio de dores articulares, proteção contra o desgaste dentário e tratamentos complementares." },
 ];
 
-const cases = [
-  { img: casoOrtodontia.url, t: "Ortodontia", d: "Alinhamento funcional e estético com aparelhos e alinhadores invisíveis." },
-  { img: casoHarmonizacao.url, t: "Harmonização Facial", d: "Equilíbrio e naturalidade com procedimentos minimamente invasivos." },
-  { img: casoReabilitacao.url, t: "Reabilitação Oral", d: "Implantes e próteses para devolver função e estética ao sorriso." },
-];
 
 const reviews = [
   { img: av1.url, n: "Roseli" },
@@ -287,25 +279,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Cases */}
-      <section className="texture-lines bg-secondary/50 px-5 py-20">
-        <div className="mx-auto max-w-5xl">
-          <SectionHead eyebrow="Casos clínicos" title="Transformações e Resultados Reais" sub="Acompanhe a evolução e o rigor técnico em nossos tratamentos de Ortodontia, Harmonização Facial e Reabilitação." />
-          <div className="grid gap-4 md:grid-cols-3">
-            {cases.map((c) => (
-              <div key={c.t} className="relative overflow-hidden rounded-3xl">
-                <img src={c.img} alt={c.t} loading="lazy" className="aspect-[4/5] w-full object-cover" />
-                <div className="bg-hero-overlay absolute inset-0" />
-                <div className="glass absolute inset-x-3 bottom-3 rounded-2xl p-4">
-                  <h3 className="on-dark text-2xl font-semibold">{c.t}</h3>
-                  <p className="on-dark-muted mt-1 text-xs font-light">{c.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-8 text-center text-xs italic text-muted-foreground">*Os resultados podem variar de acordo com as características anatômicas e o diagnóstico individual de cada paciente.</p>
-        </div>
-      </section>
 
       {/* Testimonials */}
       <section className="texture-lines px-5 py-20">
