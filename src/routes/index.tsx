@@ -281,7 +281,7 @@ function Index() {
 
 
       {/* Testimonials */}
-      <section className="texture-lines px-5 py-20">
+      <section className="texture-lines bg-secondary/50 px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <SectionHead eyebrow="Avaliações de pacientes" title="A experiência na ConsultaOral por quem viveu" sub="Histórias reais de pacientes atendidos na clínica, que saem do nosso consultório com o sorriso renovado e voltam — e indicam — de olhos fechados." />
           <div className="mx-auto max-w-2xl">
