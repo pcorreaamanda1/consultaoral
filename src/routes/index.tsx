@@ -286,7 +286,9 @@ function Index() {
             <Carousel auto={4500} label="Avaliações de pacientes no Google">
               {reviews.map((r) => (
                 <div key={r.img} className="w-full shrink-0 snap-center">
-                  <img src={r.img} alt={`Avaliação de ${r.n} no Google`} loading="lazy" className="shadow-soft w-full rounded-3xl" />
+                  <div className="shadow-soft flex h-[200px] items-center justify-center rounded-3xl border border-sky/30 bg-white p-2 sm:h-[240px]">
+                    <img src={r.img} alt={`Avaliação de ${r.n} no Google`} loading="lazy" className="max-h-full w-full object-contain" />
+                  </div>
                 </div>
               ))}
             </Carousel>
