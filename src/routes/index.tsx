@@ -142,7 +142,6 @@ const services = [
   { t: "Placas para Bruxismo & Laserterapia", d: "Alívio de dores articulares, proteção contra o desgaste dentário e tratamentos complementares." },
 ];
 
-
 const reviews = [
   { img: av1.url, n: "Roseli" },
   { img: av2.url, n: "Gabriella" },
@@ -278,7 +277,6 @@ function Index() {
           </div>
         </div>
       </section>
-
 
       {/* Testimonials */}
       <section className="texture-lines bg-secondary/50 px-5 py-20">
