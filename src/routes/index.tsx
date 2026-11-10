@@ -111,8 +111,8 @@ function Carousel({ children, auto = 0, label, nav = true }: { children: ReactNo
   );
 }
 
-const stats = [
-  { icon: Award, n: "+30", t: "Anos de prática clínica" },
+const stats: { icon: typeof Award; n?: string; t: string; long?: boolean }[] = [
+  { icon: Award, long: true, t: "Consolidação da prática clínica odontológica com ética e qualidade" },
   { icon: Users, n: "+10.000", t: "Pacientes atendidos" },
   { icon: Stethoscope, n: "3", t: "Especialistas integrados no mesmo espaço" },
   { icon: Cpu, n: "Alto", t: "Padrão tecnológico na estrutura" },
@@ -126,7 +126,7 @@ const pillars = [
 ];
 
 const team = [
-  { img: vitor.url, n: "Dr. Victor Nimrichter Jr", r: "Fundador & Cirurgião-Dentista | CRO-ES 7648", h: "+30 Anos de Experiência", d: "Liderança clínica pautada pela ética e precisão técnica. Dedicado à reabilitação oral, implantodontia e à consolidação de uma prática odontológica segura e acolhedora." },
+  { img: vitor.url, n: "Dr. Victor Nimrichter Jr", r: "Fundador & Cirurgião-Dentista | CRO-ES 7648", h: "Clínico geral & Implantodontia", d: "Liderança clínica pautada pela ética e precisão técnica. Dedicado à reabilitação oral, implantodontia e à consolidação de uma prática odontológica segura e acolhedora." },
   { img: amanda.url, n: "Dra. Amanda Nimrichter", r: "Ortodontia e Ortopedia dos Maxilares | CRO-ES 9183", h: "Alinhadores Invisíveis & Ortodontia Contemporânea", d: "Especialista no alinhamento funcional e estético do sorriso. Atua com técnicas modernas, desde aparelhos convencionais aos alinhadores invisíveis para crianças, jovens e adultos." },
   { img: vivian.url, n: "Dra. Vívian Nimrichter", r: "Harmonização Facial | CRO-ES 11195", h: "Estética Orofacial Integrada", d: "Atuação focada em realçar a beleza natural, simetria e rejuvenescimento facial através de procedimentos seguros, minimamente invasivos e personalizados." },
 ];
@@ -198,11 +198,17 @@ function Index() {
       {/* Stats */}
       <section className="bg-navy-gradient texture-grain">
         <div className="relative mx-auto grid max-w-5xl grid-cols-2 gap-3 px-4 py-10 lg:grid-cols-4">
-          {stats.map(({ icon: I, n, t }) => (
-            <div key={t} className="glass rounded-2xl p-4 text-center">
+          {stats.map(({ icon: I, n, t, long }) => (
+            <div key={t} className="glass flex flex-col items-center justify-center rounded-2xl p-4 text-center">
               <I className="mx-auto h-5 w-5 text-sky" />
-              <div className="on-dark mt-2 font-display text-3xl font-semibold">{n}</div>
-              <div className="on-dark-muted mt-1 text-[10px] font-medium uppercase leading-snug tracking-[0.15em]">{t}</div>
+              {long ? (
+                <div className="on-dark mt-3 text-[13px] leading-snug font-light sm:text-sm">{t}</div>
+              ) : (
+                <>
+                  <div className="on-dark mt-2 font-display text-3xl font-semibold">{n}</div>
+                  <div className="on-dark-muted mt-1 text-[10px] font-medium uppercase leading-snug tracking-[0.15em]">{t}</div>
+                </>
+              )}
             </div>
           ))}
         </div>
